@@ -7,22 +7,22 @@ using MyCar.Server.Persistence;
 
 namespace MyCar.Server.Controllers
 {
-    public class MakesController : Controller
+    public class FeaturesController : Controller
     {
         private readonly MyCarDbContext context;
         private readonly IMapper mapper;
 
-        public MakesController(MyCarDbContext context, IMapper mapper)
+        public FeaturesController(MyCarDbContext context, IMapper mapper)
         {
             this.context = context;
             this.mapper = mapper;
         }
 
-        [HttpGet("/api/makes")]
-        public async Task<IEnumerable<MakeResource>> GetMakes()
+        [HttpGet("/api/features")]
+        public async Task<IEnumerable<FeatureResource>> GetFeatures()
         {
-            var makes = await context.Makes.Include(m=>m.Models).ToListAsync();
-            return mapper.Map<List<Make>, List<MakeResource>>(makes);
+            var features = await context.Features.ToListAsync();
+            return mapper.Map<List<Feature>, List<FeatureResource>>(features);
         }
     }
 }

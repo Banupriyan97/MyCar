@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MyCar.Server.Persistence;
 
@@ -10,9 +11,11 @@ using MyCar.Server.Persistence;
 namespace MyCar.Server.Migrations
 {
     [DbContext(typeof(MyCarDbContext))]
-    partial class MyCarDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250104071909_AddFeature")]
+    partial class AddFeature
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
