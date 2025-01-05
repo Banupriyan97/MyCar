@@ -193,8 +193,10 @@ ClientBin/
 orleans.codegen.cs
 
 # Workaround for https://github.com/aspnet/JavaScriptServices/issues/235
-/node_modules/**
+**/node_modules/**
 !/node_modules/_placeholder.txt
+
+**/.angular/cache/**
 
 /yarn.lock
 
