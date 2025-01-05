@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using MyCar.Server.Core;
 using MyCar.Server.Mapping;
 using MyCar.Server.Persistence;
 
@@ -10,6 +11,10 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+builder.Services.AddScoped<IVehicleRepository, VehicleRepository>();
+builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+
 builder.Services.AddDbContext<MyCarDbContext>(options => 
     options.UseSqlServer(builder.Configuration.GetConnectionString("Default")));
 

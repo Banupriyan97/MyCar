@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace MyCar.Server.Models
+namespace MyCar.Server.Core.Models
 {
     [Table("Vehicles")]
     public class Vehicle

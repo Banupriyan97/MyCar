@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using MyCar.Server.Controllers.Resources;
-using MyCar.Server.Models;
+using MyCar.Server.Core.Models;
 using MyCar.Server.Persistence;
 
 namespace MyCar.Server.Controllers

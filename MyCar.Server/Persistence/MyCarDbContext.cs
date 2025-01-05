@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using MyCar.Server.Models;
+using MyCar.Server.Core.Models;
 
 namespace MyCar.Server.Persistence
 {

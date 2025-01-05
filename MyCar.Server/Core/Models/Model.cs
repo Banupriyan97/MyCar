@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace MyCar.Server.Models
+namespace MyCar.Server.Core.Models
 {
     [Table("Models")]
     public class Model
@@ -9,8 +9,10 @@ namespace MyCar.Server.Models
         public int Id { get; set; }
 
         [Required]
-        [StringLength(255)] 
+        [StringLength(255)]
         public string Name { get; set; }
+
+        public Make Make { get; set; }
 
         public int MakeId { get; set; }
     }

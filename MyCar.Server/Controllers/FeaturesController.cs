@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using MyCar.Server.Controllers.Resources;
-using MyCar.Server.Models;
+using MyCar.Server.Core.Models;
 using MyCar.Server.Persistence;
 
 namespace MyCar.Server.Controllers
@@ -19,10 +19,10 @@ namespace MyCar.Server.Controllers
         }
 
         [HttpGet("/api/features")]
-        public async Task<IEnumerable<FeatureResource>> GetFeatures()
+        public async Task<IEnumerable<KeyValuePairResource>> GetFeatures()
         {
             var features = await context.Features.ToListAsync();
-            return mapper.Map<List<Feature>, List<FeatureResource>>(features);
+            return mapper.Map<List<Feature>, List<KeyValuePairResource>>(features);
         }
     }
 }

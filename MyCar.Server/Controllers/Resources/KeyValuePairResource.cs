@@ -1,13 +1,11 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace MyCar.Server.Models
+namespace MyCar.Server.Controllers.Resources
 {
-    public class Feature
+    public class KeyValuePairResource
     {
         public int Id { get; set; }
 
-        [Required]
-        [StringLength(255)]
         public string Name { get; set; }
     }
 }
