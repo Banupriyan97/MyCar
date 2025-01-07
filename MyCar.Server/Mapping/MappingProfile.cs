@@ -9,6 +9,7 @@ namespace MyCar.Server.Mapping
         public MappingProfile()
         {
             // Domain to API Resource
+            CreateMap(typeof(QueryResult<>), typeof(QueryResultResource<>));
             CreateMap<Make, MakeResource>();
             CreateMap<Make, KeyValuePairResource>();
             CreateMap<Model, KeyValuePairResource>();
@@ -22,6 +23,7 @@ namespace MyCar.Server.Mapping
                 .ForMember(vr => vr.Make, opt => opt.MapFrom(v => v.Model.Make));
 
             // API Resource to Domain
+            CreateMap<VehicleQueryResource, VehicleQuery>();
             CreateMap<SaveVehicleResource, Vehicle>()
                 .ForMember(v => v.Id, opt => opt.Ignore())
                 .ForMember(v => v.ContactName, opt => opt.MapFrom(vr => vr.Contact.Name))

@@ -24,7 +24,6 @@ namespace MyCar.Server.Controllers
         [HttpPost]
         public async Task<IActionResult> CreateVehicle([FromBody] SaveVehicleResource vehicleResource)
         {
-            throw new Exception();
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
@@ -87,6 +86,15 @@ namespace MyCar.Server.Controllers
             var result = mapper.Map<Vehicle, VehicleResource>(vehicle);
 
             return Ok(result);
+        }
+
+        [HttpGet]
+        public async Task<QueryResultResource<VehicleResource>> GetVehicles(VehicleQueryResource filterResource)
+        {
+            var filter = mapper.Map<VehicleQueryResource, VehicleQuery>(filterResource);
+            var queryResult = await repository.GetVehicles(filter);
+
+            return mapper.Map<QueryResult<Vehicle>, QueryResultResource<VehicleResource>>(queryResult);
         }
     }
 }

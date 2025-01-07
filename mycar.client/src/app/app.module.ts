@@ -12,12 +12,16 @@ import { NavmenuComponent } from './components/navmenu/navmenu.component';
 import { HomeComponent } from './components/home/home.component';
 import { VehicleService } from './services/vehicle.service';
 import { AppErrorHandler } from './app.error-handler';
+import { VehicleListComponent } from './components/vehicle-list/vehicle-list.component';
+import { PaginationComponent } from './components/shared/pagination.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavmenuComponent,
-    VehicleFormComponent
+    VehicleFormComponent,
+    VehicleListComponent,
+    PaginationComponent
   ],
   imports: [
     FormsModule,
