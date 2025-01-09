@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using MyCar.Server.Core;
+using MyCar.Server.Core.Models;
 using MyCar.Server.Mapping;
 using MyCar.Server.Persistence;
 
@@ -12,7 +13,9 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.Configure<PhotoSettings>(builder.Configuration.GetSection("PhotoSettings"));
 builder.Services.AddScoped<IVehicleRepository, VehicleRepository>();
+builder.Services.AddScoped<IPhotoRepository, PhotoRepository>();
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
 builder.Services.AddDbContext<MyCarDbContext>(options => 
